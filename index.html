@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicholas Lombardo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">NL</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-contact-btn">Get in Touch</a>
+      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Get in Touch</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content hero-layout">
+      <div class="hero-copy">
+        <p class="hero-greeting">Hi, I am</p>
+        <h1 class="hero-name">Nicholas Lombardo</h1>
+        <p class="hero-tagline">Cornell CS student focused on machine learning, software, and math driven problem solving.</p>
+        <div class="hero-quick-facts">
+          <span>MEng CS at Cornell</span>
+          <span>ML Intern at BMS</span>
+          <span>Forecasting Intern at Port Authority</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#experience" class="btn btn-primary">See My Work</a>
+          <a href="#projects" class="btn btn-outline">View Projects</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="headshot.png" alt="Nicholas Lombardo portrait">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-heading">About Me</h2>
+      <div class="about-grid">
+        <div class="about-photo-wrapper">
+          <!-- Replace the src below with your actual photo -->
+          <div class="about-photo-placeholder" id="about-photo">
+            <img src="headshot.png" alt="Nicholas Lombardo" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');">
+            <span class="placeholder-text">Your photo here</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>
+            I am from Staten Island and I am a Cornell computer science student finishing my MEng after completing my BS with a math minor. I like work that blends theory with practical impact.
+          </p>
+          <p>
+            Outside of class and internships, I spend time reading philosophy, building physics simulations, playing poker, golfing, playing basketball, and training in the gym. I also have a bulldog.
+          </p>
+          <p>
+            I started coding in 2018, mostly use Python and Java, and have a soft spot for OCaml.
+          </p>
+          <div class="about-skills">
+            <div class="skill-group">
+              <h4>Languages</h4>
+              <div class="skill-tags">
+                <span>Python</span><span>Java</span><span>OCaml</span><span>C++</span><span>HTML/CSS/JS</span><span>MySQL</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h4>ML &amp; AI</h4>
+              <div class="skill-tags">
+                <span>TensorFlow</span><span>PyTorch</span><span>Keras</span><span>Scikit-learn</span><span>Pandas</span><span>LLMs</span><span>RAG</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section education" id="education">
+    <div class="container">
+      <h2 class="section-heading">Education</h2>
+      <div class="edu-timeline">
+        <div class="edu-card">
+          <div class="edu-icon">
+            <img src="cornell_logo.png" alt="Cornell University" class="edu-logo-img" width="56" height="56">
+          </div>
+          <div class="edu-details">
+            <h3>Master of Engineering in Computer Science</h3>
+            <p class="edu-school">Cornell University &middot; Ithaca, NY</p>
+            <p class="edu-date">Graduating May 2027</p>
+            <p class="edu-desc">Current graduate student in computer science. Focused on machine learning and artificial intelligence.</p>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">
+            <img src="cornell_logo.png" alt="Cornell University" class="edu-logo-img" width="56" height="56">
+          </div>
+          <div class="edu-details">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p class="edu-school">Cornell University &middot; Ithaca, NY &middot; Minor in Mathematics</p>
+            <p class="edu-date">May 2026 &middot; GPA: 3.83</p>
+            <p class="edu-desc">Coursework across algorithms, AI, machine learning, functional programming, probability, and linear algebra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <h2 class="section-heading">Work Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="BMS.png" alt="Bristol Myers Squibb" class="exp-logo-img" width="64" height="64">
+          </div>
+          <div class="exp-card-content">
+            <div class="exp-header">
+              <div>
+                <h3>Machine Learning Intern</h3>
+                <p class="exp-company">Bristol Myers Squibb</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-location">Lawrenceville, NJ</span>
+                <span class="exp-date">May to Aug 2025</span>
+              </div>
+            </div>
+            <div class="exp-body">
+              <p>
+                At Bristol Myers Squibb, I joined a team focused on predicting pharmacokinetic parameters from molecular structure so researchers could make better decisions earlier in discovery. The larger goal was to identify stronger compounds sooner and reduce animal testing by improving confidence before trial planning.
+              </p>
+              <p>
+                I started by building the feature pipeline in Python, using RDKit and Mordred to generate molecular descriptors and clean representations for modeling. From there, I trained CNN and GNN models to learn structure behavior patterns and benchmarked model variants across different candidate sets.
+              </p>
+              <p>
+                As the models matured, I used PCA and k means clustering to check chemical space coverage and reduce blind spots across compound classes. I then ran k fold cross validation with GMFE based evaluation and reached 1.7, giving the team a stronger early screening signal for prioritizing which compounds to move forward.
+              </p>
+              <div class="exp-tags">
+                <span>Python</span><span>CNNs</span><span>GNNs</span><span>RDKit</span><span>Mordred</span><span>PCA</span><span>Scikit-learn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="PA.png" alt="Port Authority of New York and New Jersey" class="exp-logo-img" width="64" height="64">
+          </div>
+          <div class="exp-card-content">
+            <div class="exp-header">
+              <div>
+                <h3>Data Analytics &amp; Forecasting Intern</h3>
+                <p class="exp-company">The Port Authority of New York &amp; New Jersey</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-location">New York, NY</span>
+                <span class="exp-date">May to Aug 2024</span>
+              </div>
+            </div>
+            <div class="exp-body">
+              <p>
+                At the Port Authority, I worked on forecasting passenger volumes at Newark, JFK, and LaGuardia to support recurring reporting and planning decisions. The team needed forecasts that were accurate enough to trust in operational conversations and frequent stakeholder updates.
+              </p>
+              <p>
+                I built time series pipelines in Python using SARIMAX and ensemble modeling, then segmented the workflow by airport, airline, and direction so each forecast reflected different demand patterns. I also implemented backtesting and extrapolation modes so analysts could both validate historical performance and project forward.
+              </p>
+              <p>
+                After the core models were stable, I wrapped the system in a Flask report application with configurable settings and export options so teams could generate updates on demand. The final pipeline delivered about 2 percent MAPE and made regular reporting faster, more consistent, and easier to share across stakeholders.
+              </p>
+              <div class="exp-tags">
+                <span>Python</span><span>SARIMAX</span><span>TensorFlow</span><span>Scikit-learn</span><span>Flask</span><span>Time Series</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section-heading">Projects</h2>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
+              </div>
+              <h3>PhysicsSandbox</h3>
+              <div class="project-tech">
+                <span>Java</span><span>Swing</span><span>HTML/CSS/JS</span>
+              </div>
+            </div>
+            <div class="project-desc">
+              <p>
+                PhysicsSandbox includes a web based 3D gravity simulator and desktop Java simulations for 2D gravity and black hole physics.
+              </p>
+              <p>
+                Features N body interactions, collision behavior, camera controls, adjustable constants, and textured rotating planets using NASA imagery.
+              </p>
+              <p>
+                Also built tensor based tooling for light ray geodesics in Schwarzschild spacetime to visualize lensing and event horizon behavior.
+              </p>
+            </div>
+            <div class="project-demo-placeholder">
+              <a href="https://github.com/nicholasl25/PhysicsSandbox" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              </div>
+              <h3>PAARM</h3>
+              <div class="project-tech">
+                <span>Python</span><span>Flask</span><span>SARIMAX</span><span>TensorFlow</span>
+              </div>
+            </div>
+            <div class="project-desc">
+              <p>
+                Built the Port Authority Automatic Report Maker to forecast airport passenger volumes and generate reporting outputs from one settings page.
+              </p>
+              <p>
+                Added backtest and extrapolation modes, configurable ensembles, optional deep learning, and export options for tables, model parameters, and plots.
+              </p>
+              <p>
+                Designed the workflow for forecasting teams so reports can be generated on demand with less manual analysis.
+              </p>
+            </div>
+            <div class="project-demo-placeholder">
+              <a href="https://github.com/nicholasl25/PAARM-Public" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+              <h3>Harmful Algal Bloom Prediction</h3>
+              <div class="project-tech">
+                <span>Python</span><span>Scikit-learn</span><span>SciPy</span><span>Pandas</span><span>Jupyter</span>
+              </div>
+            </div>
+            <div class="project-desc">
+              <p>
+                Built machine learning models to predict harmful algal blooms from large environmental datasets.
+              </p>
+              <p>
+                Focused on preprocessing, feature engineering, and hyperparameter tuning for stronger predictions.
+              </p>
+              <p>
+                Worked with Water and Data teams to integrate domain insights for practical lake management use.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-heading">Let's Connect</h2>
+      <p class="contact-text">I'm currently looking for full-time opportunities in software engineering and machine learning. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:nicholas.lombardo25@gmail.com" class="contact-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>nicholas.lombardo25@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/nicholas-lombardo-969905252/" target="_blank" class="contact-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/nicholasl25/" target="_blank" class="contact-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Nicholas Lombardo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
