@@ -684,6 +684,10 @@ a:hover {
   margin-top: auto;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
 }
 
 .project-demo-placeholder span {

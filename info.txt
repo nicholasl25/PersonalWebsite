@@ -1,0 +1,46 @@
+Nicholas Lombardo
++1-646-725-1983 nicholas.lombardo25@gmail.com LinkedIn GitHub
+Education
+Cornell University Ithaca, NY
+Master of Engineering in Computer Science Cornell University Ithaca, NY
+Bachelor of Science in Computer Science; Minor in Mathematics (GPA: 3.83) Expected May 2027
+May 2026
+• Relevant Coursework: Analysis of Algorithms, Machine Learning, Functional Programming, Artificial Intelligence,
+Data Structures and Algorithms, Probability, Linear Algebra, Matrix Groups, and Systems Programming
+Work Experience
+Bristol Myers Squibb May 2025 – Aug 2025
+Machine Learning Intern Lawrenceville, NJ
+• Developed CNN/GNN models to predict pharmacokinetic (PK) properties of drug candidates, achieving a Geometric
+Mean Fold Error (GMFE) of 1.7 and outperforming existing approaches used in early-stage compound evaluation.
+• Engineered molecular descriptors using RDKit and Mordred and applied PCA and k-means clustering to structure
+chemical space, improving model robustness across diverse compound classes relevant to candidate optimization.
+• Evaluated models using k-fold cross-validation and industry-standard metrics (GMFE, cross-entropy), enabling
+researchers to compare predictive performance and inform compound selection decisions.
+The Port Authority May 2024 – Aug 2024
+Data Analytics and Forecasting Intern New York, NY
+• Developed SARIMAX and ensemble forecasting models in Python (Scikit-learn, TensorFlow) to predict passenger
+volumes at Newark, JFK, and LaGuardia, achieving approximately 2% mean absolute percentage error.
+• Designed time-series forecasting pipelines segmented by airport, airline, and flight direction to capture seasonal and
+trend eﬀects and improve forecast reliability across operational scenarios.
+• Built a Flask-based automated reporting tool that delivered airline- and airport-specific forecasts on demand,
+enabling stakeholders to access updated passenger projections without manual analysis.
+Projects
+PhysicsSandbox
+Java, Swing, OpenGL, HTML/CSS/JavaScript
+• Built interactive 2D Newtonian gravity simulations using Java and Swing with multiple planets, collisions, Euler and
+RK4 integration, camera controls, and adjustable physical constants.
+• Developed Schwarzschild black hole simulations in Java using tensors to model null geodesic light ray trajectories,
+event horizon visualization, and relativistic constraint enforcement.
+• Designed reusable 2D/3D simulation frameworks with vector math libraries, collapsible control panels, web-based
+interface, and advanced visualization features including planet textures, rotation, and trajectory tracing.
+Cornell University GeoData Project Team
+Python, Scikit-learn, Scipy, Pandas, Numpy, Jupyter Notebooks
+• Analyzed large environmental datasets in Jupyter Notebooks and developed predictive machine learning models for
+Harmful Algal Blooms (HABs), applying hyperparameter tuning and data preprocessing to improve performance.
+• Coordinated with Water and Data subteams to gather domain insights into geological phenomena and integrated
+this knowledge into predictive models, enhancing accuracy and practical applicability for lake management.
+Technical Skills
+Languages: Python, Java, OCaml, C++, HTML/CSS/JavaScript, MySQL
+AI / ML Tools: Tensorflow, Pytorch, Keras, Pandas, Scikit-learn, LLMs, RAG, MCP
+Mathematics: Linear Algebra, Tensor/Vector Calculus, Complex Analysis, Group/Ring Theory, Probability, Statistics
+Hobbies: Golf, Exercise, Basketball, Philosophy, Poker, Reading, Physics
