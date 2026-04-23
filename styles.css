@@ -31,6 +31,150 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+html.splash-skip .splash-screen {
+  display: none !important;
+}
+
+/* ── Intro splash (letter wheels) ───────────────────── */
+.splash-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.splash-screen {
+  --splash-letter-h: 3.5rem;
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.splash-screen--gone {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-screen--instant {
+  transition: none;
+}
+
+.splash-screen-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-wheels {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.splash-wheel {
+  height: var(--splash-letter-h);
+  width: 2.85rem;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.splash-wheel-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+}
+
+.splash-wheel-letter {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--splash-letter-h);
+  width: 100%;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.85rem;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.splash-screen--animating .splash-wheel-strip--left {
+  animation: splash-spin-left 1.45s cubic-bezier(0.18, 0.72, 0.12, 1) forwards;
+}
+
+.splash-screen--animating .splash-wheel-strip--right {
+  animation: splash-spin-right 1.45s cubic-bezier(0.18, 0.72, 0.12, 1) forwards;
+}
+
+@keyframes splash-spin-left {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-117 * var(--splash-letter-h)));
+  }
+}
+
+@keyframes splash-spin-right {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-115 * var(--splash-letter-h)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-screen--animating .splash-wheel-strip--left,
+  .splash-screen--animating .splash-wheel-strip--right {
+    animation: none;
+  }
+
+  .splash-screen--animating .splash-wheel-strip--left {
+    transform: translateY(calc(-117 * var(--splash-letter-h)));
+  }
+
+  .splash-screen--animating .splash-wheel-strip--right {
+    transform: translateY(calc(-115 * var(--splash-letter-h)));
+  }
+}
+
+body.splash-active {
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .splash-screen {
+    --splash-letter-h: 3rem;
+  }
+
+  .splash-wheel {
+    width: 2.55rem;
+  }
+
+  .splash-wheel-letter {
+    font-size: 1.55rem;
+  }
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text);
@@ -127,6 +271,25 @@ a:hover {
   background: var(--accent-hover);
   color: #fff !important;
   transform: translateY(-1px);
+}
+
+.nav-logo.nav-link-active {
+  color: var(--accent);
+}
+
+.nav-links a.nav-link-active:not(.nav-contact-btn) {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-links .nav-contact-btn.nav-link-active {
+  background: var(--accent-hover);
+  box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+.mobile-menu a.nav-link-active {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .mobile-toggle {
