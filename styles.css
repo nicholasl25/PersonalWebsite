@@ -49,7 +49,7 @@ html.splash-skip .splash-screen {
 }
 
 .splash-screen {
-  --splash-letter-h: 3.5rem;
+  --splash-letter-h: 3.9rem;
   position: fixed;
   inset: 0;
   z-index: 2500;
@@ -86,7 +86,7 @@ html.splash-skip .splash-screen {
 
 .splash-wheel {
   height: var(--splash-letter-h);
-  width: 2.85rem;
+  width: 3.1rem;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border);
@@ -110,18 +110,19 @@ html.splash-skip .splash-screen {
   width: 100%;
   font-family: 'Source Serif 4', Georgia, serif;
   font-weight: 700;
-  font-size: 1.85rem;
+  font-size: 2.15rem;
   line-height: 1;
   color: var(--text);
   letter-spacing: -0.02em;
 }
 
 .splash-screen--animating .splash-wheel-strip--left {
-  animation: splash-spin-left 1.45s cubic-bezier(0.18, 0.72, 0.12, 1) forwards;
+  animation: splash-spin-left 1.72s cubic-bezier(0.18, 0.72, 0.12, 1) forwards;
 }
 
 .splash-screen--animating .splash-wheel-strip--right {
-  animation: splash-spin-right 1.45s cubic-bezier(0.18, 0.72, 0.12, 1) forwards;
+  animation: splash-spin-right 1.72s cubic-bezier(0.18, 0.72, 0.12, 1) forwards;
+  animation-delay: 0.2s;
 }
 
 @keyframes splash-spin-left {
@@ -143,6 +144,11 @@ html.splash-skip .splash-screen {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-name::after {
+    animation: none;
+    opacity: 1;
+  }
+
   .splash-screen--animating .splash-wheel-strip--left,
   .splash-screen--animating .splash-wheel-strip--right {
     animation: none;
@@ -163,15 +169,15 @@ body.splash-active {
 
 @media (max-width: 480px) {
   .splash-screen {
-    --splash-letter-h: 3rem;
+    --splash-letter-h: 3.35rem;
   }
 
   .splash-wheel {
-    width: 2.55rem;
+    width: 2.75rem;
   }
 
   .splash-wheel-letter {
-    font-size: 1.55rem;
+    font-size: 1.82rem;
   }
 }
 
@@ -366,11 +372,28 @@ a:hover {
 }
 
 .hero-name {
-  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
+}
+
+.hero-name::after {
+  content: " |";
+  color: var(--accent);
+  animation: blink-cursor 1s steps(1, end) infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .hero-tagline {
@@ -782,21 +805,40 @@ a:hover {
 
 .project-top {
   margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-top-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .project-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: var(--accent-light);
-  color: var(--accent);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
-.project-top h3 {
+.project-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-top-text h3 {
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -907,6 +949,48 @@ a:hover {
   font-weight: 500;
 }
 
+/* ── Commit history (3D) ─────────────────────────────── */
+.commit-viz {
+  background: var(--bg);
+}
+
+.commit-viz-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.commit-viz-root {
+  max-width: 100%;
+}
+
+.commit-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: min(440px, 55vh);
+  min-height: 320px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+#commit-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.commit-viz-status {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 /* ── Footer ──────────────────────────────────────────── */
 .footer {
   text-align: center;
@@ -952,7 +1036,7 @@ a:hover {
   }
 
   .hero-name {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .hero-tagline {
@@ -1017,7 +1101,7 @@ a:hover {
   }
 
   .hero-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .section-heading {

@@ -13,6 +13,14 @@
       document.documentElement.classList.add('splash-skip');
     }
   </script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="splash-screen" class="splash-screen" role="dialog" aria-modal="true" aria-labelledby="splash-title">
@@ -37,6 +45,7 @@
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#commit-history">Commits</a>
         <a href="#contact" class="nav-contact-btn">Get in Touch</a>
       </div>
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
@@ -52,6 +61,7 @@
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
+    <a href="#commit-history">Commits</a>
     <a href="#contact">Get in Touch</a>
   </div>
 
@@ -59,8 +69,7 @@
   <section class="hero" id="hero">
     <div class="hero-content hero-layout">
       <div class="hero-copy">
-        <p class="hero-greeting">Hi, I am</p>
-        <h1 class="hero-name">Hello World, I'm Nicholas</h1>
+        <h1 class="hero-name">Hello World, I'm Nicholas!</h1>
         <p class="hero-tagline">Cornell CS student focused on machine learning, software, and math driven problem solving.</p>
         <p class="hero-purpose">This is my portfolio. Use the sections below for background, internships, and projects, or jump to contact when you are ready to reach out.</p>
         <div class="hero-quick-facts">
@@ -74,7 +83,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="headshot.png" alt="Nicholas Lombardo portrait">
+        <img src="assets/img/headshot.png" alt="Nicholas Lombardo portrait">
       </div>
     </div>
   </section>
@@ -120,7 +129,7 @@
       <div class="edu-timeline">
         <div class="edu-card">
           <div class="edu-icon">
-            <img src="cornell_logo.png" alt="Cornell University" class="edu-logo-img" width="56" height="56">
+            <img src="assets/img/cornell_logo.png" alt="Cornell University" class="edu-logo-img" width="56" height="56">
           </div>
           <div class="edu-details">
             <h3>Master of Engineering in Computer Science</h3>
@@ -131,7 +140,7 @@
         </div>
         <div class="edu-card">
           <div class="edu-icon">
-            <img src="cornell_logo.png" alt="Cornell University" class="edu-logo-img" width="56" height="56">
+            <img src="assets/img/cornell_logo.png" alt="Cornell University" class="edu-logo-img" width="56" height="56">
           </div>
           <div class="edu-details">
             <h3>Bachelor of Science in Computer Science</h3>
@@ -152,7 +161,7 @@
 
         <div class="exp-card">
           <div class="exp-logo">
-            <img src="BMS.png" alt="Bristol Myers Squibb" class="exp-logo-img" width="64" height="64">
+            <img src="assets/img/BMS.png" alt="Bristol Myers Squibb" class="exp-logo-img" width="64" height="64">
           </div>
           <div class="exp-card-content">
             <div class="exp-header">
@@ -184,7 +193,7 @@
 
         <div class="exp-card">
           <div class="exp-logo">
-            <img src="PA.png" alt="Port Authority of New York and New Jersey" class="exp-logo-img" width="64" height="64">
+            <img src="assets/img/PA.png" alt="Port Authority of New York and New Jersey" class="exp-logo-img" width="64" height="64">
           </div>
           <div class="exp-card-content">
             <div class="exp-header">
@@ -228,11 +237,13 @@
           <div class="project-card-inner">
             <div class="project-top">
               <div class="project-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
+                <img src="assets/img/PhysicsSandbox_Logo.png" alt="PhysicsSandbox project" width="56" height="56">
               </div>
-              <h3>PhysicsSandbox</h3>
-              <div class="project-tech">
-                <span>Java</span><span>Swing</span><span>HTML/CSS/JS</span>
+              <div class="project-top-text">
+                <h3>PhysicsSandbox</h3>
+                <div class="project-tech">
+                  <span>Java</span><span>Swing</span><span>HTML/CSS/JS</span>
+                </div>
               </div>
             </div>
             <div class="project-desc">
@@ -257,11 +268,13 @@
           <div class="project-card-inner">
             <div class="project-top">
               <div class="project-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                <img src="assets/img/PA_Project.png" alt="PAARM project" width="56" height="56">
               </div>
-              <h3>PAARM</h3>
-              <div class="project-tech">
-                <span>Python</span><span>Flask</span><span>SARIMAX</span><span>TensorFlow</span>
+              <div class="project-top-text">
+                <h3>PAARM</h3>
+                <div class="project-tech">
+                  <span>Python</span><span>Flask</span><span>SARIMAX</span><span>TensorFlow</span>
+                </div>
               </div>
             </div>
             <div class="project-desc">
@@ -285,11 +298,13 @@
           <div class="project-card-inner">
             <div class="project-top">
               <div class="project-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <img src="assets/img/CU_GeoData_Project.png" alt="Cornell GeoData harmful algal bloom project" width="56" height="56">
               </div>
-              <h3>Harmful Algal Bloom Prediction</h3>
-              <div class="project-tech">
-                <span>Python</span><span>Scikit-learn</span><span>SciPy</span><span>Pandas</span><span>Jupyter</span>
+              <div class="project-top-text">
+                <h3>Harmful Algal Bloom Prediction</h3>
+                <div class="project-tech">
+                  <span>Python</span><span>Scikit-learn</span><span>SciPy</span><span>Pandas</span><span>Jupyter</span>
+                </div>
               </div>
             </div>
             <div class="project-desc">
@@ -332,10 +347,30 @@
     </div>
   </section>
 
+  <!-- 3D commit history (GitHub API + Three.js) -->
+  <section class="section commit-viz" id="commit-history">
+    <div class="container">
+      <h2 class="section-heading">Commit history</h2>
+      <p class="commit-viz-desc">3D timeline of commits to this site's GitHub repository. Drag to rotate, scroll to zoom.</p>
+      <div
+        id="commit-viz-root"
+        class="commit-viz-root"
+        data-repo-owner="nicholasl25"
+        data-repo-name="PersonalWebsite"
+      >
+        <div class="commit-canvas-wrap">
+          <canvas id="commit-canvas"></canvas>
+        </div>
+        <p id="commit-viz-status" class="commit-viz-status" role="status"></p>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <p>&copy; 2026 Nicholas Lombardo</p>
   </footer>
 
   <script src="script.js"></script>
+  <script type="module" src="commit-graph-3d.js"></script>
 </body>
 </html>

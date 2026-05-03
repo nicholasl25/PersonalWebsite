@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Intro splash: two letter wheels land on N and L (~1.5s), once per tab session
+  // Intro splash: two letter wheels land on N then L, once per tab session
   (function initSplash() {
     const splash = document.getElementById('splash-screen');
     if (!splash) return;
@@ -53,16 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    const fallbackMs = 2000;
+    const fallbackMs = 2500;
     const fallbackId = window.setTimeout(dismiss, fallbackMs);
 
     const onEnd = () => {
       window.clearTimeout(fallbackId);
-      leftStrip.removeEventListener('animationend', onEnd);
+      rightStrip.removeEventListener('animationend', onEnd);
       dismiss();
     };
 
-    leftStrip.addEventListener('animationend', onEnd);
+    rightStrip.addEventListener('animationend', onEnd);
   })();
 
   // Navbar scroll effect
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   // Scroll spy: highlight nav for the section in view
-  const sectionIds = ['hero', 'about', 'education', 'experience', 'projects', 'contact'];
+  const sectionIds = ['hero', 'about', 'education', 'experience', 'projects', 'contact', 'commit-history'];
   const logo = document.querySelector('.nav-logo');
   const desktopNavLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateScrollSpy = () => {
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight - 4;
     if (window.scrollY >= maxScroll) {
-      setActiveSection('contact');
+      setActiveSection(sectionIds[sectionIds.length - 1]);
       return;
     }
     const triggerY = getNavTriggerY();
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-triggered fade-in animations
   const animateTargets = [
-    ...document.querySelectorAll('.edu-card, .exp-card, .project-card, .about-content, .contact-links')
+    ...document.querySelectorAll('.edu-card, .exp-card, .project-card, .about-content, .contact-links, .commit-viz')
   ];
 
   animateTargets.forEach(el => el.classList.add('fade-in'));
