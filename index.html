@@ -13,14 +13,6 @@
       document.documentElement.classList.add('splash-skip');
     }
   </script>
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-    }
-  }
-  </script>
 </head>
 <body>
   <div id="splash-screen" class="splash-screen" role="dialog" aria-modal="true" aria-labelledby="splash-title">
@@ -45,7 +37,7 @@
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#commit-history">Commits</a>
+        <a href="#commit-skyline">Commits</a>
         <a href="#contact" class="nav-contact-btn">Get in Touch</a>
       </div>
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
@@ -61,7 +53,7 @@
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#commit-history">Commits</a>
+    <a href="#commit-skyline">Commits</a>
     <a href="#contact">Get in Touch</a>
   </div>
 
@@ -322,6 +314,29 @@
         </div>
 
       </div>
+
+      <div id="commit-skyline" class="projects-skyline">
+        <h3 class="projects-subheading">Commit history</h3>
+        <p class="commit-viz-desc">
+          3D contribution skyline for my GitHub profile (all public activity for the year). Embedded with
+          <a href="https://git-skyline.huakun.tech/" target="_blank" rel="noopener noreferrer">Git Skyline</a>.
+          Drag to rotate and scroll to zoom inside the frame.
+        </p>
+        <div class="commit-viz-root">
+          <div class="commit-skyline-wrap">
+            <iframe
+              class="commit-skyline-iframe"
+              title="GitHub contribution skyline for nicholasl25"
+              src="https://git-skyline.huakun.tech/contribution/github/nicholasl25/embed?year=2026&amp;enableZoom=true&amp;enablePan=true&amp;autoRotate=false&amp;enableDamping=true"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+          <p class="commit-viz-attrib">
+            Year is set to 2026. To change it, edit the <code>year=</code> query in <code>index.html</code> on this iframe <code>src</code>.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -347,30 +362,10 @@
     </div>
   </section>
 
-  <!-- 3D commit history (GitHub API + Three.js) -->
-  <section class="section commit-viz" id="commit-history">
-    <div class="container">
-      <h2 class="section-heading">Commit history</h2>
-      <p class="commit-viz-desc">3D timeline of commits to this site's GitHub repository. Drag to rotate, scroll to zoom.</p>
-      <div
-        id="commit-viz-root"
-        class="commit-viz-root"
-        data-repo-owner="nicholasl25"
-        data-repo-name="PersonalWebsite"
-      >
-        <div class="commit-canvas-wrap">
-          <canvas id="commit-canvas"></canvas>
-        </div>
-        <p id="commit-viz-status" class="commit-viz-status" role="status"></p>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <p>&copy; 2026 Nicholas Lombardo</p>
   </footer>
 
   <script src="script.js"></script>
-  <script type="module" src="commit-graph-3d.js"></script>
 </body>
 </html>
