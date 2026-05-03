@@ -15,6 +15,20 @@ This document summarizes intentional design and UX decisions for this static sit
 - **White cards** (`--surface`) with light borders and layered shadows for depth without heavy chrome.
 - **Blue accent** (`--accent`, `--accent-hover`, `--accent-light`) for links, primary buttons, and active states. Chosen for a professional, readable contrast on warm paper-like backgrounds.
 
+### Section striping
+
+Main sections alternate **default page background** (`--bg`) and **muted band** (`--bg-alt`) so long scrolls stay oriented:
+
+| Section      | Background |
+|-------------|------------|
+| Hero        | `--bg` (inherits body) |
+| About       | `--bg-alt` |
+| Education   | `--bg` |
+| Experience  | `--bg-alt` |
+| Projects    | `--bg` |
+| Random      | `--bg-alt` |
+| Contact     | `--bg` |
+
 ### Typography
 
 - **Inter** for body and UI: legible at small sizes, neutral, common in product and engineering contexts.
@@ -25,6 +39,7 @@ This document summarizes intentional design and UX decisions for this static sit
 
 - **Max content width** (`--max-width: 960px`) keeps line length and section width comfortable on large displays.
 - **Consistent section rhythm** (padding, heading style with a short accent underline) so each block feels like part of one system.
+- **Section vertical padding** is moderate (`~4.25rem` desktop, tighter on small screens) so blocks feel connected without huge dead space between them.
 
 ## Information architecture
 
@@ -32,8 +47,9 @@ This document summarizes intentional design and UX decisions for this static sit
 2. **About** — Personal and human context (location, interests, dog), plus skill tags grouped by category.
 3. **Education** — Cornell-focused cards with logo thumbnails.
 4. **Experience** — Employer logos, narrative paragraphs, technology tags.
-5. **Projects** — Cards with circular project art, tech tags, links; **commit skyline** lives at the bottom of this section (not a separate top-level section) so it reads as part of “work output” before contact.
-6. **Contact** — Centered layout, clear outbound actions.
+5. **Projects** — Cards with circular project art, tech tags, links; GeoData project intentionally has no demo link per earlier requirements.
+6. **Random** — A separate band between Projects and Contact. Holds only the **Git Skyline** embed (3D GitHub contribution view): section title **Random**, left-aligned like other headings, one short paragraph (`.random-desc`) with tool credit and interaction hints, then the iframe. The year and other embed flags live in the iframe `src` on `index.html` (no separate “how to edit the URL” note on the page).
+7. **Contact** — Centered layout, clear outbound actions.
 
 ## Hero and CTAs (homepage clarity)
 
@@ -44,7 +60,8 @@ This document summarizes intentional design and UX decisions for this static sit
 
 - **Fixed navbar** with slight blur and shadow on scroll for separation from content.
 - **Brand link** “N. Lombardo” returns to hero; receives active styling when the hero is the current scroll context.
-- **Scroll spy** updates which nav item is “current” based on scroll position (with a bottom-of-page rule so the last section still highlights correctly).
+- **In-page links** include **Random** (`#random`) for the skyline section, between Projects and Contact.
+- **Scroll spy** updates which nav item is “current” based on scroll position (sections: hero, about, education, experience, projects, random, contact), with a bottom-of-page rule so the last section still highlights correctly.
 - **Active state styling** is deliberately visible: pill background, stronger weight, and for the contact button a double ring so the current section is obvious at a glance.
 - **Mobile:** hamburger menu with the same links; active item uses the same pill treatment for consistency.
 
@@ -56,15 +73,20 @@ This document summarizes intentional design and UX decisions for this static sit
 
 ## Motion and polish
 
-- **Scroll-triggered fade-in** on major blocks (cards, about block, contact row, projects skyline) for a light sense of depth, without heavy animation elsewhere.
+- **Scroll-triggered fade-in** on major blocks (cards, about block, contact row, Random description, skyline iframe container) for a light sense of depth, without heavy animation elsewhere.
 - **Smooth scrolling** for in-page anchor links (with JS fallback where needed).
 - **Hover states** on cards and buttons use shadow and small translate for feedback.
 
 ## Projects section
 
 - **Circular thumbnails** in a row with title and tags for a compact “app tile” feel.
-- **Demo + GitHub** where applicable; GeoData project intentionally has no demo link per earlier requirements.
-- **Embedded Git Skyline** (third-party iframe) for a 3D contribution view; attribution and year are documented in copy so you can adjust the iframe URL without hunting through JS.
+- **Demo + GitHub** where applicable.
+
+## Random section (Git Skyline)
+
+- **Placement:** Own section so striping stays regular and Projects stays purely project cards.
+- **Embedding:** Third-party iframe ([Git Skyline](https://git-skyline.huakun.tech/)); lazy-loaded, strict referrer policy.
+- **Copy:** Brief description only; no duplicate “Random” footer label under the graph.
 
 ## Assets
 
@@ -73,6 +95,7 @@ This document summarizes intentional design and UX decisions for this static sit
 ## Accessibility touches
 
 - Splash uses **`role="dialog"`**, **`aria-modal`**, and a screen-reader-only title; it is hidden from assistive tech when dismissed.
+- Random section ties the visible title to the region with **`aria-labelledby`** on the section pointing at the **Random** heading.
 - Nav active links set **`aria-current="true"`** when appropriate.
 - **Reduced motion** respected for the splash sequence; hero cursor blink is toned down under reduced motion in CSS.
 

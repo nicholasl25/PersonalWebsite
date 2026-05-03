@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   // Scroll spy: highlight nav for the section in view
-  const sectionIds = ['hero', 'about', 'education', 'experience', 'projects', 'contact'];
+  const sectionIds = ['hero', 'about', 'education', 'experience', 'projects', 'random', 'contact'];
   const logo = document.querySelector('.nav-logo');
   const desktopNavLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-triggered fade-in animations
   const animateTargets = [
-    ...document.querySelectorAll('.edu-card, .exp-card, .project-card, .about-content, .contact-links, .projects-skyline')
+    ...document.querySelectorAll('.edu-card, .exp-card, .project-card, .about-content, .contact-links, .random-desc, .random .commit-viz-root')
   ];
 
   animateTargets.forEach(el => el.classList.add('fade-in'));

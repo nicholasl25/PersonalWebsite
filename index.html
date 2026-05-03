@@ -37,7 +37,7 @@
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#commit-skyline">Commits</a>
+        <a href="#random">Random</a>
         <a href="#contact" class="nav-contact-btn">Get in Touch</a>
       </div>
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
@@ -53,7 +53,7 @@
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#commit-skyline">Commits</a>
+    <a href="#random">Random</a>
     <a href="#contact">Get in Touch</a>
   </div>
 
@@ -314,27 +314,27 @@
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <div id="commit-skyline" class="projects-skyline">
-        <h3 class="projects-subheading">Commit history</h3>
-        <p class="commit-viz-desc">
-          3D contribution skyline for my GitHub profile (all public activity for the year). Embedded with
-          <a href="https://git-skyline.huakun.tech/" target="_blank" rel="noopener noreferrer">Git Skyline</a>.
-          Drag to rotate and scroll to zoom inside the frame.
-        </p>
-        <div class="commit-viz-root">
-          <div class="commit-skyline-wrap">
-            <iframe
-              class="commit-skyline-iframe"
-              title="GitHub contribution skyline for nicholasl25"
-              src="https://git-skyline.huakun.tech/contribution/github/nicholasl25/embed?year=2026&amp;enableZoom=true&amp;enablePan=true&amp;autoRotate=false&amp;enableDamping=true"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
-          </div>
-          <p class="commit-viz-attrib">
-            Year is set to 2026. To change it, edit the <code>year=</code> query in <code>index.html</code> on this iframe <code>src</code>.
-          </p>
+  <!-- Random: commit skyline only -->
+  <section class="section random" id="random" aria-labelledby="random-heading">
+    <div class="container random-inner">
+      <h2 class="section-heading" id="random-heading">Random</h2>
+      <p class="random-desc">
+        A 3D view of my public GitHub commits for the year (via
+        <a href="https://git-skyline.huakun.tech/" target="_blank" rel="noopener noreferrer">Git Skyline</a>).
+        Drag to rotate and scroll to zoom inside the frame.
+      </p>
+      <div class="commit-viz-root">
+        <div class="commit-skyline-wrap">
+          <iframe
+            class="commit-skyline-iframe"
+            title="GitHub contribution skyline for nicholasl25"
+            src="https://git-skyline.huakun.tech/contribution/github/nicholasl25/embed?year=2026&amp;enableZoom=true&amp;enablePan=true&amp;autoRotate=false&amp;enableDamping=true"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
         </div>
       </div>
     </div>
