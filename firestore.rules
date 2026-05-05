@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // One document per browser: client uses doc ID = visitor UUID (see wordcloud-init.js).
+    match /visitor_words/{docId} {
+      allow read: if true;
+      allow create: if !exists(/databases/$(database)/documents/visitor_words/$(docId))
+        && request.resource.data.keys().hasOnly(['word'])
+        && request.resource.data.word is string
+        && request.resource.data.word.size() >= 1
+        && request.resource.data.word.size() <= 24
+        && request.resource.data.word.matches('^[a-z]+$');
+      allow update, delete: if false;
+    }
+  }
+}

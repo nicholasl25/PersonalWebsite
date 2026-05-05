@@ -48,7 +48,7 @@ Main sections alternate **default page background** (`--bg`) and **muted band** 
 3. **Education** — Cornell-focused cards with logo thumbnails.
 4. **Experience** — Employer logos, narrative paragraphs, technology tags.
 5. **Projects** — Cards with circular project art, tech tags, links; GeoData project intentionally has no demo link per earlier requirements.
-6. **Random** — A separate band between Projects and Contact. Holds only the **Git Skyline** embed (3D GitHub contribution view): section title **Random**, left-aligned like other headings, one short paragraph (`.random-desc`) with tool credit and interaction hints, then the iframe. The year and other embed flags live in the iframe `src` on `index.html` (no separate “how to edit the URL” note on the page).
+6. **Random** — A separate band between Projects and Contact: section title **Random**, intro copy, a **visitor word cloud** (one word per browser, shared across everyone via Firebase), then the **Git Skyline** iframe. Skyline year and embed flags live in the iframe `src` in `index.html` only.
 7. **Contact** — Centered layout, clear outbound actions.
 
 ## Hero and CTAs (homepage clarity)
@@ -73,7 +73,7 @@ Main sections alternate **default page background** (`--bg`) and **muted band** 
 
 ## Motion and polish
 
-- **Scroll-triggered fade-in** on major blocks (cards, about block, contact row, Random description, skyline iframe container) for a light sense of depth, without heavy animation elsewhere.
+- **Scroll-triggered fade-in** on major blocks (cards, about block, contact row, Random description, word-cloud block, skyline iframe container) for a light sense of depth, without heavy animation elsewhere.
 - **Smooth scrolling** for in-page anchor links (with JS fallback where needed).
 - **Hover states** on cards and buttons use shadow and small translate for feedback.
 
@@ -82,15 +82,17 @@ Main sections alternate **default page background** (`--bg`) and **muted band** 
 - **Circular thumbnails** in a row with title and tags for a compact “app tile” feel.
 - **Demo + GitHub** where applicable.
 
-## Random section (Git Skyline)
+## Random section (word cloud + Git Skyline)
 
 - **Placement:** Own section so striping stays regular and Projects stays purely project cards.
-- **Embedding:** Third-party iframe ([Git Skyline](https://git-skyline.huakun.tech/)); lazy-loaded, strict referrer policy.
-- **Copy:** Brief description only; no duplicate “Random” footer label under the graph.
+- **Visitor word cloud:** Words are stored in **Cloud Firestore** (`visitor_words` collection). Each browser gets a stable random id in `localStorage` (`nl_wordcloud_vid`); the document id is that id, so each visitor can create **at most one** word (Firestore rules also block overwrites). Words are normalized to **lowercase letters only** (max 24) before save; the canvas uses **wordcloud2.js** (vendored under `assets/vendor/`) to lay out text, with weights so duplicate words from different people appear larger.
+- **Firebase setup:** Put your web app config in `firebase-config.js` as `window.PORTFOLIO_FIREBASE_CONFIG` (see the comment at the top of that file). In the Firebase console, enable Firestore and publish rules from `firestore.rules` in this repo (or equivalent): public read, create-only when the document id path is new and `word` matches the rule. With `firebase-config.js` still `null`, the canvas and form stay hidden and a short message explains that the feature is off.
+- **Git Skyline:** Third-party iframe ([Git Skyline](https://git-skyline.huakun.tech/)); lazy-loaded, strict referrer policy.
 
 ## Assets
 
 - **Raster images** live under `assets/img/` so the repo root stays tidy and paths are predictable (`assets/img/...`).
+- **Vendor JS:** `assets/vendor/wordcloud2.js` powers the Random word cloud layout (see `assets/vendor/README.md`).
 
 ## Accessibility touches
 
@@ -104,6 +106,7 @@ Main sections alternate **default page background** (`--bg`) and **muted band** 
 - No heavy JS framework or CSS framework, to keep load and complexity low.
 - No duplicate hero headshot in About (clearer story flow).
 - No custom-built 3D commit chart in favor of an **embedded, maintained tool** (Git Skyline) for reliability and less maintenance.
+- No custom word-cloud layout engine: **wordcloud2.js** handles placement; only storage and form rules are custom.
 
 ---
 

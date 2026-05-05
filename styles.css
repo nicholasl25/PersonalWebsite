@@ -985,7 +985,98 @@ a:hover {
   max-width: 640px;
   line-height: 1.65;
   margin-top: -1.75rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.random-wordcloud {
+  margin-bottom: 2rem;
+}
+
+.random-wordcloud-canvas-wrap {
+  width: 100%;
+  height: min(240px, 42vw);
+  min-height: 200px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.random-wordcloud-canvas-wrap canvas {
+  display: block;
+}
+
+.random-wordcloud-hint {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.65rem;
+  margin-bottom: 0.75rem;
+  max-width: 640px;
+}
+
+.random-wordcloud-status {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.random-wordcloud-status--error {
+  color: #9b2c2c;
+}
+
+.random-wordcloud-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.random-wordcloud-form--locked .random-wordcloud-row {
+  opacity: 0.55;
+}
+
+.random-wordcloud-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.random-wordcloud-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.random-wordcloud-input {
+  flex: 1 1 160px;
+  min-width: 0;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.random-wordcloud-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.random-wordcloud-input:disabled {
+  cursor: not-allowed;
+  background: var(--bg-alt);
+}
+
+.random-wordcloud-submit {
+  flex: 0 0 auto;
 }
 
 .commit-viz-root {

@@ -317,7 +317,7 @@
     </div>
   </section>
 
-  <!-- Random: commit skyline only -->
+  <!-- Random: visitor word cloud + Git skyline -->
   <section class="section random" id="random" aria-labelledby="random-heading">
     <div class="container random-inner">
       <h2 class="section-heading" id="random-heading">Random</h2>
@@ -325,7 +325,31 @@
         A 3D view of my public GitHub commits for the year (via
         <a href="https://git-skyline.huakun.tech/" target="_blank" rel="noopener noreferrer">Git Skyline</a>).
         Drag to rotate and scroll to zoom inside the frame.
+        Each visitor can also add <strong>one word</strong> (letters only) to the shared cloud below; everyone sees the same cloud.
       </p>
+      <div class="random-wordcloud fade-in" id="random-wordcloud">
+        <div id="random-wordcloud-canvas-wrap" class="random-wordcloud-canvas-wrap">
+          <canvas id="random-wordcloud-canvas" width="400" height="220" aria-label="Word cloud"></canvas>
+        </div>
+        <p id="random-wordcloud-hint" class="random-wordcloud-hint"></p>
+        <p id="random-wordcloud-status" class="random-wordcloud-status" role="status" hidden></p>
+        <form id="random-wordcloud-form" class="random-wordcloud-form">
+          <label for="random-word-input" class="random-wordcloud-label">Your word</label>
+          <div class="random-wordcloud-row">
+            <input
+              type="text"
+              id="random-word-input"
+              class="random-wordcloud-input"
+              maxlength="24"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="e.g. curiosity"
+            />
+            <button type="submit" id="random-wordcloud-submit" class="btn btn-primary random-wordcloud-submit">Add</button>
+          </div>
+        </form>
+      </div>
       <div class="commit-viz-root">
         <div class="commit-skyline-wrap">
           <iframe
@@ -366,6 +390,11 @@
     <p>&copy; 2026 Nicholas Lombardo</p>
   </footer>
 
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="assets/vendor/wordcloud2.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="wordcloud-init.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-triggered fade-in animations
   const animateTargets = [
-    ...document.querySelectorAll('.edu-card, .exp-card, .project-card, .about-content, .contact-links, .random-desc, .random .commit-viz-root')
+    ...document.querySelectorAll('.edu-card, .exp-card, .project-card, .about-content, .contact-links, .random-desc, .random-wordcloud, .random .commit-viz-root')
   ];
 
   animateTargets.forEach(el => el.classList.add('fade-in'));
