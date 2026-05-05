@@ -1,110 +1,100 @@
 # Design choices — personal portfolio
 
-This document summarizes intentional design and UX decisions for this static site (`index.html`, `styles.css`, `script.js`).
+This document explains the communication strategy of the site, with emphasis on multimedia presentation: images, visual rhythm, interactive modules, and motion.
 
-## Stack and philosophy
+## Communication goal
 
-- **Static first:** HTML, CSS, and vanilla JavaScript only. No build step, so the site is easy to host (e.g. GitHub Pages) and simple to maintain.
-- **Recruiter-oriented:** Scannable sections, clear labels, and concrete tech names alongside short narrative copy.
+The page is designed to quickly answer four viewer questions:
 
-## Visual language
+1. Who is this person?
+2. What kind of work do they actually build?
+3. Can I see evidence, not just claims?
+4. How do I reach out?
 
-### Color and surface
+The design therefore prioritizes **visual proof** (photos, logos, project imagery, demos, interactive embeds) over long text.
 
-- **Warm neutrals** for the page background (`--bg`, `--bg-alt`) to avoid a cold “default gray” feel.
-- **White cards** (`--surface`) with light borders and layered shadows for depth without heavy chrome.
-- **Blue accent** (`--accent`, `--accent-hover`, `--accent-light`) for links, primary buttons, and active states. Chosen for a professional, readable contrast on warm paper-like backgrounds.
+## Multimedia-first storytelling
 
-### Section striping
+- **Show, then explain:** major sections lead with visual anchors (headshot, logos, project art, interactive graphics) before detailed text.
+- **Evidence in multiple media:** text summaries are paired with images, links, demos, and live embeds to support different reviewer preferences.
+- **Skimmable visual cadence:** alternating card blocks, tags, and media elements prevent a wall-of-text effect.
 
-Main sections alternate **default page background** (`--bg`) and **muted band** (`--bg-alt`) so long scrolls stay oriented:
+## Narrative structure (top to bottom)
 
-| Section      | Background |
-|-------------|------------|
-| Hero        | `--bg` (inherits body) |
-| About       | `--bg-alt` |
-| Education   | `--bg` |
-| Experience  | `--bg-alt` |
-| Projects    | `--bg` |
-| Random      | `--bg-alt` |
-| Contact     | `--bg` |
+### Hero: identity in one screen
 
-### Typography
+- Uses a strong personal photo for instant recognition.
+- Combines headline, short positioning statement, and direct CTAs.
+- Visual and text are balanced so the first screen feels complete without scrolling.
 
-- **Inter** for body and UI: legible at small sizes, neutral, common in product and engineering contexts.
-- **Source Serif 4** for headings and the nav wordmark: adds a slightly editorial, personal tone without feeling ornate.
-- **Tight negative letter-spacing** on large titles for a contemporary headline look.
+### About: human signal + readable detail
 
-### Layout
+- Text stays concise and personal.
+- Skill tags act as visual micro-summaries rather than long skill paragraphs.
 
-- **Max content width** (`--max-width: 960px`) keeps line length and section width comfortable on large displays.
-- **Consistent section rhythm** (padding, heading style with a short accent underline) so each block feels like part of one system.
-- **Section vertical padding** is moderate (`~4.25rem` desktop, tighter on small screens) so blocks feel connected without huge dead space between them.
+### Education and Experience: credibility with visual shorthand
 
-## Information architecture
+- Institutional and company logos provide immediate trust cues.
+- Role cards use metadata (title, location, dates) as quick-scan anchors.
+- Narrative paragraphs add context after credibility is established visually.
 
-1. **Hero** — Identity, one-line focus, explicit “this is a portfolio” purpose line, quick credential pills, primary CTA to projects, secondary text link to experience. Headshot only here (not repeated in About) to reduce redundancy.
-2. **About** — Personal and human context (location, interests, dog), plus skill tags grouped by category.
-3. **Education** — Cornell-focused cards with logo thumbnails.
-4. **Experience** — Employer logos, narrative paragraphs, technology tags.
-5. **Projects** — Cards with circular project art, tech tags, links; GeoData project intentionally has no demo link per earlier requirements.
-6. **Random** — A separate band between Projects and Contact. Holds only the **Git Skyline** embed (3D GitHub contribution view): section title **Random**, left-aligned like other headings, one short paragraph (`.random-desc`) with tool credit and interaction hints, then the iframe. The year and other embed flags live in the iframe `src` on `index.html` (no separate “how to edit the URL” note on the page).
-7. **Contact** — Centered layout, clear outbound actions.
+### Projects: core proof section
 
-## Hero and CTAs (homepage clarity)
+- Project cards use strong thumbnail imagery to communicate project identity at a glance.
+- Tech tags, links, and compact descriptions create fast comparison across projects.
+- Demo/GitHub links convert each visual card into an actionable proof unit.
 
-- **Explicit purpose** (`hero-purpose`) states that the site is a portfolio and what to do next, in the spirit of “don’t make me think” for first-time visitors.
-- **Single primary action:** “View projects” as the filled button; “Work experience” as a secondary underlined link so the first click is obvious.
+### Random: interactivity and personality
 
-## Navigation
+- Positioned as a visual/interactive break between Projects and Contact.
+- Git skyline adds a dynamic 3D contribution visualization.
+- Visitor word cloud adds lightweight user participation and social texture.
 
-- **Fixed navbar** with slight blur and shadow on scroll for separation from content.
-- **Brand link** “N. Lombardo” returns to hero; receives active styling when the hero is the current scroll context.
-- **In-page links** include **Random** (`#random`) for the skyline section, between Projects and Contact.
-- **Scroll spy** updates which nav item is “current” based on scroll position (sections: hero, about, education, experience, projects, random, contact), with a bottom-of-page rule so the last section still highlights correctly.
-- **Active state styling** is deliberately visible: pill background, stronger weight, and for the contact button a double ring so the current section is obvious at a glance.
-- **Mobile:** hamburger menu with the same links; active item uses the same pill treatment for consistency.
+### Contact: clean conversion panel
 
-## Intro splash (letter wheels)
+- Contact options are displayed as visual cards with icons and labels.
+- The layout reduces decision friction at the final step.
 
-- **Short branded moment:** Two vertical strips spin and land on **N** then **L**, staggered so the second wheel finishes after the first.
-- **Session behavior:** `sessionStorage` plus an early `html` class avoids flashing the splash on every refresh in the same tab.
-- **Reduced motion:** If the user prefers reduced motion, the strip snaps to the final letters and the overlay dismisses quickly.
+## Visual hierarchy and UI choices
 
-## Motion and polish
+- **Alternating section backgrounds** maintain orientation during long scroll.
+- **Card-based composition** keeps content modular and easy to scan.
+- **Consistent iconography and badges** establish pattern recognition across sections.
+- **Accent color discipline** ensures clickable and important elements are instantly visible.
 
-- **Scroll-triggered fade-in** on major blocks (cards, about block, contact row, Random description, skyline iframe container) for a light sense of depth, without heavy animation elsewhere.
-- **Smooth scrolling** for in-page anchor links (with JS fallback where needed).
-- **Hover states** on cards and buttons use shadow and small translate for feedback.
+## Image and media strategy
 
-## Projects section
+- **Headshot:** used once, early, to establish personhood and avoid repetition.
+- **Logo usage:** university and company marks are used as credibility markers, not decoration.
+- **Project imagery:** circular thumbnail treatment gives each project a recognizable visual signature.
+- **External demos and media:** links point to externally hosted demos (for example, the PhysicsSandbox GitHub Pages demo) so this repo stays focused on portfolio presentation rather than bundling large demo export assets.
 
-- **Circular thumbnails** in a row with title and tags for a compact “app tile” feel.
-- **Demo + GitHub** where applicable.
+## Motion and interactivity strategy
 
-## Random section (Git Skyline)
+- **Subtle motion only:** fade-ins and hover lift provide affordance, not spectacle.
+- **Splash moment as branding cue:** brief identity animation appears once per session to avoid fatigue.
+- **Interactive embeds are purposeful:** interactivity is used where it supports evidence (commit skyline, visitor cloud), not as filler.
 
-- **Placement:** Own section so striping stays regular and Projects stays purely project cards.
-- **Embedding:** Third-party iframe ([Git Skyline](https://git-skyline.huakun.tech/)); lazy-loaded, strict referrer policy.
-- **Copy:** Brief description only; no duplicate “Random” footer label under the graph.
+## Navigation and wayfinding
 
-## Assets
+- Fixed navigation keeps orientation while exploring media-heavy sections.
+- Active-link states help users understand where they are in the narrative.
+- Mobile navigation mirrors desktop labels so interaction rules stay consistent.
 
-- **Raster images** live under `assets/img/` so the repo root stays tidy and paths are predictable (`assets/img/...`).
+## Accessibility as communication quality
 
-## Accessibility touches
+Accessibility is treated as part of message delivery:
 
-- Splash uses **`role="dialog"`**, **`aria-modal`**, and a screen-reader-only title; it is hidden from assistive tech when dismissed.
-- Random section ties the visible title to the region with **`aria-labelledby`** on the section pointing at the **Random** heading.
-- Nav active links set **`aria-current="true"`** when appropriate.
-- **Reduced motion** respected for the splash sequence; hero cursor blink is toned down under reduced motion in CSS.
+- semantic structure supports screen-reader wayfinding,
+- visible states and contrast support clarity,
+- reduced-motion behavior keeps content comfortable and legible.
 
-## What we deliberately avoided
+## Deliberate omissions
 
-- No heavy JS framework or CSS framework, to keep load and complexity low.
-- No duplicate hero headshot in About (clearer story flow).
-- No custom-built 3D commit chart in favor of an **embedded, maintained tool** (Git Skyline) for reliability and less maintenance.
+- No dense paragraph blocks at the top.
+- No autoplay media that competes with core content.
+- No decorative interaction that adds cognitive load without adding evidence.
 
 ---
 
-*Update this file when you make major layout or branding changes so future you (or collaborators) know why things look the way they do.*
+*When updating this file, describe not only what changed visually, but how the change improves clarity, proof, and engagement for a first-time viewer.*
