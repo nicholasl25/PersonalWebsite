@@ -66,6 +66,7 @@
         <p class="hero-purpose">This is my portfolio. Use the sections below for background, internships, and projects, or jump to contact when you are ready to reach out.</p>
         <div class="hero-quick-facts">
           <span>MEng CS at Cornell</span>
+          <span>SDE Co-op at Amazon</span>
           <span>ML Intern at BMS</span>
           <span>Forecasting Intern at Port Authority</span>
         </div>
@@ -150,6 +151,38 @@
     <div class="container">
       <h2 class="section-heading">Work Experience</h2>
       <div class="exp-list">
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="assets/img/Amazon.svg" alt="Amazon" class="exp-logo-img" width="64" height="64">
+          </div>
+          <div class="exp-card-content">
+            <div class="exp-header">
+              <div>
+                <h3>Software Development Engineer Co-op</h3>
+                <p class="exp-company">Amazon</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-location">Seattle, WA</span>
+                <span class="exp-date">Sep to Dec 2026</span>
+              </div>
+            </div>
+            <div class="exp-body">
+              <p>
+                At Amazon, I work on Amazon Health AI, building an AI agent tool that lets users ask questions about their One Medical lab records. Because the answers involve health data, the tool had to be accurate by design rather than relying on the model to get numbers right.
+              </p>
+              <p>
+                I designed it so the model only extracts structured query fields, while the tool retrieves exact lab values from the records, so the model never generates health data itself. I built it end to end with a Python backend and a React/TypeScript frontend, and in evaluation it reached a 99 percent tool-invocation rate.
+              </p>
+              <p>
+                On top of the retrieval, I added trend detection and out-of-range flagging over users' historical lab results, visualized in React. I also set up feature A/B testing with AWS AppConfig feature flags and deployments to control which feature variants users receive during rollout.
+              </p>
+              <div class="exp-tags">
+                <span>Python</span><span>AI Agents</span><span>React</span><span>TypeScript</span><span>AWS AppConfig</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="exp-card">
           <div class="exp-logo">
@@ -322,19 +355,18 @@
     <div class="container random-inner">
       <h2 class="section-heading" id="random-heading">Random</h2>
       <p class="random-desc">
-        A 3D view of my public GitHub commits for the year (via
-        <a href="https://git-skyline.huakun.tech/" target="_blank" rel="noopener noreferrer">Git Skyline</a>).
-        Drag to rotate and scroll to zoom inside the frame.
+        My GitHub contributions for the past year, being eaten by a snake (via
+        <a href="https://github.com/Platane/snk" target="_blank" rel="noopener noreferrer">Platane/snk</a>).
+        Regenerated daily.
       </p>
       <div class="commit-viz-root">
-        <div class="commit-skyline-wrap">
-          <iframe
-            class="commit-skyline-iframe"
-            title="GitHub contribution skyline for nicholasl25"
-            src="https://git-skyline.huakun.tech/contribution/github/nicholasl25/embed?year=2026&amp;enableZoom=true&amp;enablePan=true&amp;autoRotate=false&amp;enableDamping=true"
+        <div class="contrib-snake-wrap">
+          <img
+            class="contrib-snake"
+            src="https://raw.githubusercontent.com/nicholasl25/PersonalWebsite/output/github-snake.svg"
+            alt="Animated snake eating the squares of nicholasl25's GitHub contribution graph"
             loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
+          >
         </div>
       </div>
     </div>
